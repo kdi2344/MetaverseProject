@@ -84,7 +84,7 @@ public class Players : MonoBehaviour
 
     public void TreasureBtn(){
         if (isOnTreasure && currentObj != null){
-            StartCoroutine(TreasureOpen());
+            currentCo = StartCoroutine(TreasureOpen());
         }
     }
 
@@ -203,6 +203,7 @@ public class Players : MonoBehaviour
         mainCanvas.GetChild(5).gameObject.SetActive(true);
         yield return new WaitForSeconds(2f);
         mainCanvas.GetChild(5).gameObject.SetActive(false);
+        currentCo = null;
     }
 
     IEnumerator IntoBooth(){
